@@ -7,15 +7,33 @@
     </div>
     <h2>Données provenant de l'API ServiceB :</h2>
     <div>
-      <h3>{{ data?.id }}</h3>
-      <p>{{ data?.title }}</p>
-      <p>{{ data?.description }}</p>
+      <ul>
+        <li *ngFor="let item of data">
+          {{ item.id }} - {{ item.title }} - {{ item.description }}
+        </li>
+      </ul>
     </div>
-    <h2>Données provenant de l'API ServiceB 2eme Methode :</h2>
+    <!-- <h2>Données provenant de l'API ServiceB 2eme Methode :</h2>
     <div>
       <h3>{{ dataUp?.id }}</h3>
       <p>{{ dataUp?.title }}</p>
       <p>{{ dataUp?.description }}</p>
+    </div> -->
+    <h2>Données provenant de Store Angular :</h2>
+    <div>
+      <ul>
+        <li *ngFor="let data of (externalDataFromStore$ | async)">
+          {{ data.title }} - {{ data.description }}
+        </li>
+      </ul>
+    </div>
+    <h2>Données provenant de Store Angular provenant du service B:</h2>
+    <div>
+      <ul>
+        <li *ngFor="let data of (externalDataFromServiceB$ | async)">
+          {{ data.id }} {{ data.title }} - {{ data.description }}
+        </li>
+      </ul>
     </div>
   </div>
 </main>

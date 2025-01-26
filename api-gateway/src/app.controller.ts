@@ -34,8 +34,8 @@ export class AppController {
   }
 
   @Get('external-data/second')
-  async getExternalDataUp(): Promise<ExternalData> {
-    const result: ExternalData = await lastValueFrom(
+  async getExternalDataUp(): Promise<ExternalData[]> {
+    const result: ExternalData[] = await lastValueFrom(
       this.serviceB.send({ cmd: 'second' }, {}),
     );
     return result;
