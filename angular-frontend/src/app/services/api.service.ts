@@ -6,14 +6,21 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private readonly apiUrl = 'http://localhost:3000/api'; // Grâce au proxy, cette URL pointe vers l'API Gateway
+
+  private readonly apiUrl = 'http://localhost:3000/api';
+  // private readonly apiUrlServiceB = 'http://localhost:4000/data';
 
   constructor(private http: HttpClient) {}
-  // constructor() {}
+
   getHello(): Observable<any> {
     return this.http.get(`${this.apiUrl}/hello`);
   }
-  // getHello(): Observable<{message: string}> {
-  //   return of({ message: 'Hello'})
-  // }
+
+  getExternalData(): Observable<any> {    
+    return this.http.get(`${this.apiUrl}/external-data/first`)
+  }
+
+  getExternalDataUp(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/external-data/second`)
+  }
 }

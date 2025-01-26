@@ -1,12 +1,21 @@
 <main class="main">
   <div class="content">
+    <h1>Bienvenue sur la page principale</h1>
+    <h2>Données provenant de l'API Gateway :</h2>
     <div>
-      <!-- Affiche la valeur brute de statusMessage -->
-      <h1>{{ statusMessage }}</h1>
+      <h3>{{ statusMessage }}</h3>
     </div>
+    <h2>Données provenant de l'API ServiceB :</h2>
     <div>
-      <!-- Debug : Affiche le statut actuel de statusMessage -->
-      <pre>{{ statusMessage }}</pre>
+      <h3>{{ data?.id }}</h3>
+      <p>{{ data?.title }}</p>
+      <p>{{ data?.description }}</p>
+    </div>
+    <h2>Données provenant de l'API ServiceB 2eme Methode :</h2>
+    <div>
+      <h3>{{ dataUp?.id }}</h3>
+      <p>{{ dataUp?.title }}</p>
+      <p>{{ dataUp?.description }}</p>
     </div>
   </div>
 </main>
